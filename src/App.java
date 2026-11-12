@@ -62,7 +62,7 @@ public class App {
     }
 
     static void print_banner() {
-        System.out.println("=== Library Tracker ===");
+        System.out.println("=== Library Tracker === Welcome! Type a command to manage your books.");
     }
 
     private static void printBooks(List<Book> books, String emptyMessage) {
