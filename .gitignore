@@ -1,0 +1,19 @@
+# Secrets (required by the assignment)
+.env
+
+# Python cache (required by the assignment)
+__pycache__/
+
+# Java build output
+out/
+*.class
+
+# Local data file created when the app runs
+books.json
+
+# IDE / OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
