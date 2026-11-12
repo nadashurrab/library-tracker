@@ -7,6 +7,8 @@ import java.util.List;
  * Usage:
  *   java -cp out App add "Title" "Author"
  *   java -cp out App list
+ *   java -cp out App search keyword
+ *   java -cp out App remove id
  */
 public class App {
 
@@ -34,6 +36,27 @@ public class App {
                 }
             }
             case "list" -> printBooks(store.all(), "No books yet.");
+            case "search" -> {
+                if (args.length < 2) {
+                    System.out.println("Usage: search keyword");
+                    return;
+                }
+                printBooks(store.search(args[1]), "No books match \"" + args[1] + "\".");
+            }
+            case "remove" -> {
+                if (args.length < 2) {
+                    System.out.println("Usage: remove id");
+                    return;
+                }
+                int id;
+                try {
+                    id = Integer.parseInt(args[1]);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: id must be a number.");
+                    return;
+                }
+                System.out.println(store.remove(id) ? "Removed book #" + id : "No book with id " + id);
+            }
             default -> printUsage();
         }
     }
@@ -51,6 +74,6 @@ public class App {
     }
 
     private static void printUsage() {
-        System.out.println("Commands: add \"Title\" \"Author\" | list");
+        System.out.println("Commands: add \"Title\" \"Author\" | list | search keyword | remove id");
     }
 }

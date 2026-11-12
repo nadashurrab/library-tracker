@@ -42,6 +42,26 @@ public class BookStore {
         return book;
     }
 
+    public List<Book> search(String keyword) {
+        String needle = keyword.toLowerCase().trim();
+        List<Book> result = new ArrayList<>();
+        for (Book book : books) {
+            if (book.title().toLowerCase().contains(needle)
+                    || book.author().toLowerCase().contains(needle)) {
+                result.add(book);
+            }
+        }
+        return result;
+    }
+
+    public boolean remove(int id) throws IOException {
+        boolean removed = books.removeIf(book -> book.id() == id);
+        if (removed) {
+            save();
+        }
+        return removed;
+    }
+
     private int nextId() {
         int max = 0;
         for (Book book : books) {
