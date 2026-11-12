@@ -7,6 +7,7 @@ import java.util.List;
  * Usage:
  *   java -cp out App add "Title" "Author"
  *   java -cp out App list
+ *   java -cp out App search keyword
  */
 public class App {
 
@@ -34,6 +35,13 @@ public class App {
                 }
             }
             case "list" -> printBooks(store.all(), "No books yet.");
+            case "search" -> {
+                if (args.length < 2) {
+                    System.out.println("Usage: search keyword");
+                    return;
+                }
+                printBooks(store.search(args[1]), "No books match \"" + args[1] + "\".");
+            }
             default -> printUsage();
         }
     }
@@ -51,6 +59,6 @@ public class App {
     }
 
     private static void printUsage() {
-        System.out.println("Commands: add \"Title\" \"Author\" | list");
+        System.out.println("Commands: add \"Title\" \"Author\" | list | search keyword");
     }
 }
