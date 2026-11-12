@@ -8,6 +8,7 @@ import java.util.List;
  *   java -cp out App add "Title" "Author"
  *   java -cp out App list
  *   java -cp out App search keyword
+ *   java -cp out App remove id
  */
 public class App {
 
@@ -42,6 +43,14 @@ public class App {
                 }
                 printBooks(store.search(args[1]), "No books match \"" + args[1] + "\".");
             }
+            case "remove" -> {
+                if (args.length < 2) {
+                    System.out.println("Usage: remove id");
+                    return;
+                }
+                int id = Integer.parseInt(args[1]);
+                System.out.println(store.remove(id) ? "Removed book #" + id : "No book with id " + id);
+            }
             default -> printUsage();
         }
     }
@@ -59,6 +68,6 @@ public class App {
     }
 
     private static void printUsage() {
-        System.out.println("Commands: add \"Title\" \"Author\" | list | search keyword");
+        System.out.println("Commands: add \"Title\" \"Author\" | list | search keyword | remove id");
     }
 }

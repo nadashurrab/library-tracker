@@ -54,6 +54,14 @@ public class BookStore {
         return result;
     }
 
+    public boolean remove(int id) throws IOException {
+        boolean removed = books.removeIf(book -> book.id() == id);
+        if (removed) {
+            save();
+        }
+        return removed;
+    }
+
     private int nextId() {
         int max = 0;
         for (Book book : books) {
