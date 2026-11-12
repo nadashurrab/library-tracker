@@ -18,8 +18,13 @@ Built for **Assignment 2 — Team Git: GitHub Flow, Reviews & Recovery** (Softwa
 
 ```bash
 javac -d out src/*.java
+java -cp out App add "Clean Code" "Robert C. Martin"
 java -cp out App list
+java -cp out App search martin
+java -cp out App remove 1
 ```
+
+Books are saved in `books.json` in the folder you run the program from.
 
 ## Commands
 
@@ -27,7 +32,7 @@ java -cp out App list
 |---------------------------------|--------------------------------------|
 | `add "Title" "Author"`          | Adds a new book                      |
 | `list`                          | Lists all books                      |
-| `search keyword`                | Finds books by title or author       |
+| `search keyword`                | Finds books by title or author (case-insensitive) |
 | `remove id`                     | Removes the book with that id        |
 
 ## Workflow
