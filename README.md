@@ -40,3 +40,11 @@ Books are saved in `books.json` in the folder you run the program from.
 We use **GitHub Flow**: every change starts from an issue, lives on a short-lived
 `feature/*` branch, goes through a reviewed pull request, and is merged into `main`.
 Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/).
+
+## Contributing
+
+1. Open an issue describing the change.
+2. Create a branch from `main` (`feature/...`, `fix/...` or `docs/...`).
+3. Commit with Conventional Commits, e.g. `feat(books): add search`.
+4. Open a pull request with `Closes #<issue>` and ask your teammate for a review.
+5. Never push or force-push directly to `main`.
