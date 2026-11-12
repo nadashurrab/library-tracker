@@ -26,8 +26,12 @@ public class App {
                     System.out.println("Usage: add \"Title\" \"Author\"");
                     return;
                 }
-                Book book = store.add(args[1], args[2]);
-                System.out.println("Added: " + book);
+                try {
+                    Book book = store.add(args[1], args[2]);
+                    System.out.println("Added: " + book);
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
             }
             case "list" -> printBooks(store.all(), "No books yet.");
             default -> printUsage();

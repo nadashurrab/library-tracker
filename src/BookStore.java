@@ -30,6 +30,12 @@ public class BookStore {
     }
 
     public Book add(String title, String author) throws IOException {
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Title must not be empty.");
+        }
+        if (author == null || author.isBlank()) {
+            throw new IllegalArgumentException("Author must not be empty.");
+        }
         Book book = new Book(nextId(), title.trim(), author.trim());
         books.add(book);
         save();
