@@ -48,7 +48,13 @@ public class App {
                     System.out.println("Usage: remove id");
                     return;
                 }
-                int id = Integer.parseInt(args[1]);
+                int id;
+                try {
+                    id = Integer.parseInt(args[1]);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: id must be a number.");
+                    return;
+                }
                 System.out.println(store.remove(id) ? "Removed book #" + id : "No book with id " + id);
             }
             default -> printUsage();
