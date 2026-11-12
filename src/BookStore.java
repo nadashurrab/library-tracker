@@ -29,6 +29,10 @@ public class BookStore {
         return List.copyOf(books);
     }
 
+    public int count() {
+        return books.size();
+    }
+
     public Book add(String title, String author) throws IOException {
         if (title == null || title.isBlank()) {
             throw new IllegalArgumentException("Title must not be empty.");
