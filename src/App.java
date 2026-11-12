@@ -65,6 +65,7 @@ public class App {
         System.out.println("+-------------------------------+");
         System.out.println("|     Library Tracker  v1.0     |");
         System.out.println("+-------------------------------+");
+        System.out.println("Welcome! Type a command to manage your books.");
     }
 
     private static void printBooks(List<Book> books, String emptyMessage) {
